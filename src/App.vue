@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="showCheckout">{{ this.cart.length }} Checkout</button>
+    <lesson-list @addProduct="addToCart"></lesson-list>
+    <checkout :cart="cart"></checkout>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import LessonList from "./components/LessonPage.vue";
+  import Checkout from "./components/CheckoutPage.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: "App",
+    components: {
+      LessonList,
+      Checkout,
+    },
+    data() {
+      return { sitename: "Vue.js Pet Depot", cart: [] };
+    },
+    methods: {
+      showCheckout() {},
+      addToCart(product) {
+        console.log(`Added ${product.title} to cart`);
+        this.cart.push(product);
+      },
+    },
+  };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
