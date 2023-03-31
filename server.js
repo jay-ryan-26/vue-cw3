@@ -14,13 +14,6 @@ app.use((req, res, next) => {
 
 app.use(cors());
 
-// Logger
-app.use((req, res, next) => {
-  console.log("Req IP: ", req.url);
-  console.log("Req Date: ", new Date());
-  next();
-});
-
 const MongoClient = require("mongodb").MongoClient;
 
 // Connect to webstore db
@@ -41,4 +34,8 @@ app.get("/lessons", (req, res, next) => {
       res.send(result);
       console.log("Got Lessons");
     });
+});
+
+app.listen(Port, () => {
+  console.log(`app on port: localhost:${Port}`);
 });

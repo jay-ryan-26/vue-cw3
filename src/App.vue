@@ -17,7 +17,14 @@
       Checkout,
     },
     data() {
-      return { sitename: "Vue.js Pet Depot", cart: [] };
+      return { sitename: "Vue.js Pet Depot", cart: [], lessons: [] };
+    },
+    created: function () {
+      fetch("http://localhost:5000/lessons").then((res) => {
+        res.json().then((json) => {
+          this.lessons = json;
+        });
+      });
     },
     methods: {
       showCheckout() {},
