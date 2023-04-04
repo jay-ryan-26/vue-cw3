@@ -11,6 +11,15 @@
         <button class="mt-10" @click="validation(name, phone)">Submit</button>
       </p>
     </div>
+    <div class="mt-10">
+      <h3>PRINT</h3>
+      <p>
+        <strong> Name: </strong>
+        {{ name }}<br /><strong class="mt-10"> Phone: </strong> {{ phone }}
+        <br />
+        <button class="mt-10" @click="validation(name, phone)">Submit</button>
+      </p>
+    </div>
     <h3>Added products</h3>
     <div v-for="(product, index) in cart" :key="index">
       <div id="item-container">
